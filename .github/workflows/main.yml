@@ -9,6 +9,5 @@ jobs:
       - name: Build with Buildozer
         uses: ArtemSerebriakov/buildozer-action@v1
         with:
-          buildozer_version: master
           command: buildozer android debug
           
