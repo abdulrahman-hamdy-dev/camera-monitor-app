@@ -1,16 +1,22 @@
-[app]
+ [app]
 title = Camera Monitor
 package.name = cameramonitor
 package.domain = org.abdo
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
-requirements = python3,kivy==2.3.0,requests,urllib3,openssl
+# التعديل هنا: شيلنا urllib3 و openssl لأن kivy بتسحبهم تلقائي وبسببهم كان بيحصل تعارض
+requirements = python3,kivy==2.3.0,requests
 orientation = portrait
-# أهم تعديل في الصلاحيات
+
 android.permissions = CAMERA, INTERNET
-android.api = 30 
+# التعديل هنا: رفعنا الـ API لـ 33 عشان يوافق النسخة اللي جيتهاب شغال بيها حالياً في الصور
+android.api = 33
 android.minapi = 21
-android.ndk = 25b
-# الغي السطر ده حالياً عشان ما يعملش Crash للكاميرا
-# android.services = Monitor:service.py 
+# التعديل هنا: سيبنا الـ NDK فاضي عشان Buildozer يختار النسخة الأنسب للـ API 33 أوتوماتيك
+android.ndk = 
+
+# السطر ده مهم جداً لقبول الشروط آلياً
+android.accept_sdk_license = True
+
+# android.services = Monitor:service.py
