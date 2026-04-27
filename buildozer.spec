@@ -5,18 +5,14 @@ package.domain = org.abdo
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
-# التعديل هنا: شيلنا urllib3 و openssl لأن kivy بتسحبهم تلقائي وبسببهم كان بيحصل تعارض
+# شيلنا urllib3 و openssl عشان kivy 2.3.0 بتديرهم بنفسها
 requirements = python3,kivy==2.3.0,requests
 orientation = portrait
 
 android.permissions = CAMERA, INTERNET
-# التعديل هنا: رفعنا الـ API لـ 33 عشان يوافق النسخة اللي جيتهاب شغال بيها حالياً في الصور
-android.api = 33
+# رفعنا الـ API لـ 31 (أكثر نسخة مستقرة مع Gradle حالياً)
+android.api = 31
 android.minapi = 21
-# التعديل هنا: سيبنا الـ NDK فاضي عشان Buildozer يختار النسخة الأنسب للـ API 33 أوتوماتيك
-android.ndk = 25b
-
-# السطر ده مهم جداً لقبول الشروط آلياً
+# نزلنا الـ NDK لـ 23b لأنها الوحيدة اللي بتمنع خطأ AttributeError و Command failed
+android.ndk = 23b
 android.accept_sdk_license = True
-
-# android.services = Monitor:service.py
