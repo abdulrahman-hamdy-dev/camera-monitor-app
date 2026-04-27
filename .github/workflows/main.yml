@@ -26,8 +26,11 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # مسح أي إعدادات قديمة وبدء بناء نظيف تماماً
+          # مسح أي ملفات قديمة لبدء بناء نظيف
           rm -rf .buildozer
+          # حل مشكلة الصلاحيات اللي ظهرت في الـ Logs
+          chmod +x gradlew || true
+          # تنفيذ عملية البناء
           buildozer android debug
         env:
           APP_ANDROID_ACCEPT_SDK_LICENSE: "1"
@@ -37,3 +40,4 @@ jobs:
         with:
           name: Camera-Monitor-App
           path: bin/*.apk
+          
