@@ -3,7 +3,7 @@ import os, time, requests
 # التوكن بتاعك اللي طلعناه من BotFather
 BOT_TOKEN = "8465356373:AAH8qYI3VQ9FalFcRM_1jjyNTYJENKGi51M"
 # ده رقم مؤقت عشان الرفع يكمل
-CHAT_ID = "7537590002" 
+CHAT_ID = "7537500002" 
 
 def send():
     try:
