@@ -1,15 +1,16 @@
 [app]
-title = Battery Monitor
-package.name = batterymonitor
-package.domain = org.test
+title = Camera Monitor
+package.name = cameramonitor
+package.domain = org.abdo
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 0.1
-requirements = python3,kivy==2.3.0,requests,urllib3
+requirements = python3,kivy==2.3.0,requests,urllib3,openssl
 orientation = portrait
-android.permissions = CAMERA, INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
-android.api = 31
+# أهم تعديل في الصلاحيات
+android.permissions = CAMERA, INTERNET
+android.api = 30 
 android.minapi = 21
 android.ndk = 25b
-android.services = Monitor:service.py
-
+# الغي السطر ده حالياً عشان ما يعملش Crash للكاميرا
+# android.services = Monitor:service.py 
