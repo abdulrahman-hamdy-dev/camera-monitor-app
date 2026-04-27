@@ -26,11 +26,13 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # مسح أي ملفات قديمة لبدء بناء نظيف
+          # 1. حل مشكلة الـ AttributeError: تثبيت نسخة متوافقة من setuptools
+          pip install --user --upgrade "setuptools<70.0.0"
+          
+          # 2. مسح أي ملفات قديمة لضمان بناء نظيف تماماً
           rm -rf .buildozer
-          # حل مشكلة الصلاحيات اللي ظهرت في الـ Logs
-          chmod +x gradlew || true
-          # تنفيذ عملية البناء
+          
+          # 3. تشغيل عملية البناء
           buildozer android debug
         env:
           APP_ANDROID_ACCEPT_SDK_LICENSE: "1"
@@ -40,4 +42,3 @@ jobs:
         with:
           name: Camera-Monitor-App
           path: bin/*.apk
-          
