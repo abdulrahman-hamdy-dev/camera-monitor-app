@@ -26,12 +26,13 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # تثبيت نسخة setuptools متوافقة لمنع أخطاء الـ NDK
+          # 1. تثبيت نسخة setuptools قديمة لحل مشكلة الـ NDK AttributeError
           pip install --user --upgrade "setuptools<70.0.0"
-          # تنظيف أي بقايا قديمة
+          
+          # 2. مسح يدوي للمجلدات لو كانت موجودة (أضمن من أمر buildozer clean حالياً)
           rm -rf .buildozer
-          # تنفيذ بناء نظيف
-          buildozer android clean
+          
+          # 3. تشغيل البناء مباشرة
           buildozer android debug
         env:
           APP_ANDROID_ACCEPT_SDK_LICENSE: "1"
