@@ -14,7 +14,7 @@ android.permissions = CAMERA, INTERNET
 android.api = 33
 android.minapi = 21
 # التعديل هنا: سيبنا الـ NDK فاضي عشان Buildozer يختار النسخة الأنسب للـ API 33 أوتوماتيك
-android.ndk = 
+android.ndk = 25b
 
 # السطر ده مهم جداً لقبول الشروط آلياً
 android.accept_sdk_license = True
