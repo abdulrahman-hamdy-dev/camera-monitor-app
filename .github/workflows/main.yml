@@ -5,10 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # تحديث لـ v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # تحديث لـ v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -20,13 +20,14 @@ jobs:
 
       - name: Build with Buildozer
         run: |
+          pip3 install --user buildozer
           export PATH=$PATH:$HOME/.local/bin
           buildozer android debug
         env:
           APP_ANDROID_ACCEPT_SDK_LICENSE: "1"
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4 # ده الحل للـ Error اللي ظهرلك
+        uses: actions/upload-artifact@v4
         with:
           name: monitor-app-apk
           path: bin/*.apk
